@@ -1,0 +1,40 @@
+.Auth{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 4rem;
+    position: relative;
+}
+.logo{
+    height: 2rem;
+    width: 2rem;
+}
+.Auth > div{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* left side */
+
+.a_left{
+    gap:2rem;
+}
+.a-left{
+    width: 4rem;
+    height: 4rem;
+}
+.Webname > h1 {
+    font-size: 3rem;
+    background-color: aqua;
+    /* Create the gradient*/
+    background-image: var(--buttonBg);
+
+    /* Set the background size and repeat proper*/
+
+
+
+
+}
