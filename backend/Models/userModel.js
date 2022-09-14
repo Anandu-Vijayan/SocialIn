@@ -27,12 +27,12 @@ const UserSchema = mongoose.Schema({
   livesin:String, 
   worlsAt:String,
   relationship:String,
-  follwers:[],
-  followings:[],
+  followers:[],
+  following:[],
 },
 {timestamps:true}
 );
 
 const UserModel = mongoose.model("Users",UserSchema);
 
-export default UserModel
+export default UserModel;
