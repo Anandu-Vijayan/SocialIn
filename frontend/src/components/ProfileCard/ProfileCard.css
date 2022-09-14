@@ -1,6 +1,6 @@
 .ProfileCard{
     width: 100%;
-    height: 100%;
+    height: 450px;
     border-radius: 1.5rem;
     display: flex;
     flex-direction: column;
@@ -18,7 +18,7 @@
 }
 .ProfileImages>img:nth-of-type(1){
     width: 100%;
-    height: 100px;
+    height: 130px;
 }
 .ProfileImages>img:nth-of-type(2){
     width: 6rem;
