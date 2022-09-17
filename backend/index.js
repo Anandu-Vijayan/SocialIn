@@ -7,6 +7,7 @@ import { errorHandler, notFound } from "./middilewares/errorMiddleware.js";
 import UserRoute from './Routes/UserRoute.js'
 import PostRoute from './Routes/PostRoute.js'
 import cors from "cors"
+import UploadeRoute from "./Routes/UplodeRoute.js"
 
 
 
@@ -23,8 +24,6 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 // app.use(notFound)
 // app.use(errorHandler)
 app.use(cors())
-
-
 dotenv.config();
 
 mongoose
@@ -38,4 +37,5 @@ mongoose
   app.use('/auth',AuthRoute) 
   app.use('/user',UserRoute) 
   app.use('/post',PostRoute)
+  app.use('/upload',UploadeRoute)
    
