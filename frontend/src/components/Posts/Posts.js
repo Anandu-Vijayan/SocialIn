@@ -11,7 +11,7 @@ const Posts = () => {
 
   useEffect(()=>{
     dispatch(getTimelinePosts(user._id))
-  })
+  },[])
 
 
   return (
