@@ -5,9 +5,14 @@ import Home from "./pages/home/Home"
 import Profile from './pages/Profile/Profile';
 import {Routes,Route,Navigate} from 'react-router-dom'
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 function App() {
   const user =useSelector((state)=>state.authReducer.authData)
+
+  useEffect(()=>{
+    console.log(user,"00999");
+  })
   return (
     <div className="App">
      <div className='blur' style={{top:'-18%',right:'0'}}></div>

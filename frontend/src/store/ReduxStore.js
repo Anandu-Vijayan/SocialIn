@@ -1,4 +1,4 @@
-import {
+ import {
     legacy_createStore as createStore,
     applyMiddleware,
     compose,

@@ -8,6 +8,8 @@ import UserRoute from './Routes/UserRoute.js'
 import PostRoute from './Routes/PostRoute.js'
 import cors from "cors"
 import UploadeRoute from "./Routes/UplodeRoute.js"
+import ChatRoute from "./Routes/ChatRoute.js"
+import MessageRoute from './Routes/MessageRoute.js'
 
 
 
@@ -43,5 +45,7 @@ mongoose
   app.use('/user',UserRoute) 
   app.use('/post',PostRoute)
   app.use('/upload',UploadeRoute)
+  app.use("/chat",ChatRoute)
+  app.use("/message",MessageRoute)
   
    
