@@ -1,18 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { getMessages } from "../../api/MessageRequests";
+import { addMessage, getMessages } from "../../api/MessageRequests";
 import { getUser } from "../../api/UserRequest";
 import "./ChatBox.css";
 import {format} from "timeago.js"
 import InputEmoji from "react-input-emoji"
 
-const ChatBox = ({ chat, currentUser }) => {
+const ChatBox = ({ chat, currentUser,setSendMessage,reciveMessage }) => {
   const [userData, setUserData] = useState(null);
   const [messages,setMessages]= useState([]);
   const [newMessage, setNewMessage] = useState("");
 
+
+  useEffect(()=>{
+    if(reciveMessage!==null && reciveMessage.chatId===chat._id){
+      setMessages([...messages,reciveMessage])
+    }
+
+  },[reciveMessage])
+
   //fetching data for header
   useEffect(() => {
-    const userId = chat?.members.find((id) => id !== currentUser);
+    const userId = chat?.members?.find((id) => id !== currentUser);
     const getUserData = async () => {
       try {
         const { data } = await getUser(userId);
@@ -43,6 +51,30 @@ const ChatBox = ({ chat, currentUser }) => {
    const handleChange =(newMessage)=>{
     setNewMessage(newMessage)
    }
+
+   const handleSend=async(e)=>{
+    e.preventDefault();
+   const message ={
+    senderId:currentUser,
+    text:newMessage,
+    chatId:chat._id,
+
+   }
+
+   //send message to database
+   try {
+    const {data} = await addMessage(message);
+    setMessages([...message,data])
+    setNewMessage("")
+   } catch (error) {
+    console.log(error);
+    
+   }
+   //send message to socket server
+   const receviverId = chat.members.find((id)=>id !==currentUser);
+   setSendMessage({...message,receviverId})
+   }
+
 
   return (
     <>
@@ -93,7 +125,7 @@ const ChatBox = ({ chat, currentUser }) => {
         value={newMessage}
         onChange={handleChange}
         />
-        <div className="send-button button">
+        <div className="send-button button" onClick={handleSend}>
             Send
         </div>
     

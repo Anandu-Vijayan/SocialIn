@@ -10,12 +10,49 @@ import LogoSearch from "../../components/LogoSearch/LogoSearch";
 import "./Chat.css";
 import { Link } from "react-router-dom";
 import ChatBox from "../../components/ChatBox/ChatBox";
+import {io} from 'socket.io-client';
+import{useRef} from "react"
 
 const Chat = () => {
   const { user } = useSelector((state) => state.authReducer.authData);
 
   const [chats, setChats] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
+  const [onlineUsers,setOnlineUsers] = useState([])
+  const [sendMessage,setSendmessage] = useState(null)
+  const [reciveMessage,setRecieveMessage] = useState(null)
+  const socket = useRef()
+
+
+  //receive Message from socket sever
+
+ 
+
+  useEffect(()=>{
+    if(sendMessage!==null){
+      socket.current.emit('send-message',sendMessage)
+    }
+  },[sendMessage])
+
+  
+
+  useEffect(()=>{
+    socket.current = io('http://localhost:8800')
+    socket.current.emit("new-user-add",user._id)
+    socket.current.on('get-users',(users)=>{
+      setOnlineUsers(users);
+      console.log(onlineUsers);
+    })
+     
+  },[user])
+
+  useEffect(()=>{
+    socket.current.on("receive-message",(data)=>{
+      setRecieveMessage(data)
+    })
+  },[])
+
+
 
   useEffect(() => {
     const getChats = async () => {
@@ -61,7 +98,7 @@ const Chat = () => {
           {/*chat body*/}
         </div>
         <div>
-          <ChatBox chat={currentChat} currentUser={user._id} />
+          <ChatBox chat={currentChat} currentUser={user._id} setSendmessage={setSendmessage}reciveMessage={reciveMessage} />
         </div>
       </div>
     </div>

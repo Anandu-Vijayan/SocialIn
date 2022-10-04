@@ -50,7 +50,7 @@ const Auth = () => {
     <div className="Auth">
       {/* Left side */}
       <div className="a_left">
-        <img className="logo" src={Logo} alt="" />
+        {/* <img className="logo" src={Logo} alt="" /> */}
         <div className="Webname">
           <h1>SocialIn</h1>
           <h6>Connect Everyone</h6>

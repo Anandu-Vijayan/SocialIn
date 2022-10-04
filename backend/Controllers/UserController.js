@@ -17,7 +17,6 @@ export const getAllUsers =async(req,res)=>{
     
   }
 }
-
 // get a User
 
 export const getUser = async (req, res) => {
@@ -123,6 +122,7 @@ export const followUser = async (req,res)=>{
 
 
 // UnFollow a User
+
 
 export const UnFollowUser = async (req,res)=>{
   const id = req.params.id
