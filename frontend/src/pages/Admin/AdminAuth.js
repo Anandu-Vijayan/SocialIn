@@ -9,9 +9,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import {Link,useNavigate } from 'react-router-dom'
+import {Link,useNavigate, Navigate } from 'react-router-dom'
 import {useState,useEffect} from 'react'
 import axios from 'axios'
+
 // import ErrorMessage from '../ErrorMessage';
 
 
@@ -25,11 +26,10 @@ export default function Login() {
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
   const [error,setError]=useState('')
-  const Navigate = useNavigate()
+  const navigate = useNavigate()
   const [errPass, setErrPass] = useState("");
   // const [errMsg, setErrMsg] = useState("");
   const [errEmail, setErrEmail] = useState("");
-
 
   
   useEffect(() => {
@@ -97,7 +97,8 @@ export default function Login() {
       
      console.log(data);
       localStorage.setItem('userInfo',JSON.stringify(data))
-     Navigate("/home")
+      
+     navigate("/admin-home/dashBoard")
 
     }
     } catch (error) {
@@ -175,7 +176,7 @@ export default function Login() {
                
               </Grid>
               <Grid item>
-               <Link to="/signup">I dont't have a account</Link>
+               {/* <Link to="/signup">I dont't have a account</Link> */}
               </Grid>
             </Grid>
           </Box>

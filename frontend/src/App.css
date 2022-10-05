@@ -16,8 +16,8 @@
 .App{
   overflow: hidden;
   color:var(--black);
-  background-color: aliceblue;
-  padding: 1rem 1rem;
+  /* background-color: aliceblue; */
+  /* padding: 1rem 1rem; */
 }
 .blur{
   position: absolute;
