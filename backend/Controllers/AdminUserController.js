@@ -13,7 +13,7 @@ export const getAllUsers =async(req,res)=>{
         const {password,...otherDetails} = user._doc
         return otherDetails
       })
-      res.status(200).json(users)
+      res.status(200).json({users})
     } catch (error) {
       res.status(500).json(error)
       
@@ -53,7 +53,7 @@ export const deleteUser = async (req,res)=>{
       } catch (error) {
         res.status(500).json(error)
       }
-    }
+    } 
     else{
       res.status(403).json("Access Denied ! you can only Delete your own profile")
     }
