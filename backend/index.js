@@ -12,7 +12,7 @@ import ChatRoute from "./Routes/ChatRoute.js"
 import MessageRoute from './Routes/MessageRoute.js'
 import AdminAuthRoute from './Routes/AdminAuthRoute.js'
 import AdminUserRoute from './Routes/AdminUserRoute.js'
-
+import logger from 'morgan'
 
 //Routes
 const app = express();
@@ -27,6 +27,7 @@ app.use('/images',express.static("images"))
 
 
 //Middleware
+app.use(logger('dev'))
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 // app.use(notFound)
@@ -50,5 +51,6 @@ mongoose
   app.use("/message",MessageRoute)
   app.use('/admin',AdminAuthRoute)
   app.use('/adminUser/',AdminUserRoute)
+  
   
    

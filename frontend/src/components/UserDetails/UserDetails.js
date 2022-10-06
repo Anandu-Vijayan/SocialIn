@@ -8,12 +8,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Swal from 'sweetalert2'
 
 const UserDetails = () => {
   const [users,setUsers]=useState('')
   const navigate = useNavigate()
 
-const userInfo = localStorage.getItem('userInfo')
+const userInfo = localStorage.getItem('userInfo');
+const [state,setState]=useState(false);
 useEffect(()=>{
   getUser()
   if(userInfo){
@@ -21,7 +23,27 @@ useEffect(()=>{
   }else{
     navigate('/admin')
   }
-},[])
+},[state])
+
+const handleDelete=(id)=>{
+  console.log(id)
+  
+  axios(
+    {
+      method:'delete',
+      url:'http://localhost:5000/admin/deleteUser',
+      data:{
+        userId:id
+      }
+    }
+  ).then((response)=>{
+    console.log(response);
+    setState(!state)
+  })
+
+  
+
+}
 
 
 
@@ -61,8 +83,8 @@ const getUser=async()=>{
               </TableCell>
               <TableCell align="right">{item.firstname}</TableCell>
               <TableCell align="right">{item.lastname}</TableCell>
-              <TableCell align="right">{item.livesin}</TableCell>
-              <TableCell align="right"><button >Delete</button></TableCell>
+              <TableCell align="right">{item.relationship}</TableCell>
+              <TableCell align="right"><button onClick={()=>{handleDelete(item._id)}}>Delete</button></TableCell>
               
               
             </TableRow>
