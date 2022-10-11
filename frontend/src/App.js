@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import Chat from './pages/Chat/Chat';
 import AdminAuth from './pages/Admin/AdminAuth';
 import AdminHome from './pages/AdminHome/AdminHome';
-import AdminFeed from './components/AdminFeed/AdminFeed';
+// import AdminFeed from './components/AdminFeed/AdminFeed';
 import UserDetails from './components/UserDetails/UserDetails';
 import Dashboard from './components/Dashboard/Dashboard';
 
