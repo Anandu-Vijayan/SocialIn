@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './ChatBox.css'
-import { getMessages } from "../../api/MessageRequests";
+import { addMessage, getMessages } from "../../api/MessageRequests";
 import { getUser } from "../../api/UserRequest";
 import { format } from "timeago.js";
 import InputEmoji from 'react-input-emoji'
@@ -41,6 +41,25 @@ const ChatBox = ({ chat, currentUser }) => {
   const handleChange = (newMessage) => {
     setNewMessage(newMessage);
   };
+  const handleSend=async (e)=>{
+    e.preventDefault();
+    const message ={
+      senderId:currentUser,
+      text:newMessage,
+      chatId:chat._id
+    }
+
+      //send message to database
+      try {
+        const {data} = await addMessage(message);
+        setMessages([...messages, data])
+        setNewMessage("")
+        
+      } catch (error) {
+        console.log(error);
+        
+      }
+  }
 
   return (
     <>
@@ -92,7 +111,7 @@ const ChatBox = ({ chat, currentUser }) => {
             value = {newMessage}
             onChange = {handleChange}
             />
-            <div className="send-button button">Send
+            <div className="send-button button" onClick={handleSend}>Send
 
             </div>
 
