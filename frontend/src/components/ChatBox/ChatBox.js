@@ -5,12 +5,19 @@ import { getUser } from "../../api/UserRequest";
 import { format } from "timeago.js";
 import InputEmoji from 'react-input-emoji'
 
-const ChatBox = ({ chat, currentUser }) => {
+const ChatBox = ({ chat, currentUser,setSendMessage,receiveMessage}) => {
   const [userData, setUserdata] = useState(null);
   const [messages, setMessages] = useState([]);
   const [newMessage,setNewMessage] = useState("")
-  
 
+  useEffect(()=>{
+    if(receiveMessage!==null && receiveMessage.chatId._id){
+      setMessages([...messages,receiveMessage])
+    }
+
+  },[receiveMessage])
+  
+// fetching data for header
   useEffect(() => {
     const userId = chat?.members?.find((id) => id !== currentUser);
     const getUserData = async () => {
@@ -59,6 +66,10 @@ const ChatBox = ({ chat, currentUser }) => {
         console.log(error);
         
       }
+      //send message to socket server
+      const receiverId = chat.members.find((id)=>id !== currentUser);
+      setSendMessage({...message,receiverId})
+
   }
 
   return (
