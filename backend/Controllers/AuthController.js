@@ -56,11 +56,10 @@ export const registerUser = async (req, res) => {
 export const loginUser = async (req,res)=>{
     const {username,password}=req.body
 
-    
-
     try {
         const user = await UserModel.findOne({username:username})
-        if (user)
+        if(user.status){
+           if (user)
         {
           const  validity = await bcrypt.compare(password,user.password)  
 
@@ -81,6 +80,10 @@ export const loginUser = async (req,res)=>{
         }else{
             res.status(404).json("User does not exits")
         }
+        }else{
+          res.status(404).json("UserBlocked")
+        }
+       
     } catch (error) {
         
     }

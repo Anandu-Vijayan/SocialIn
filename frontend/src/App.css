@@ -16,7 +16,7 @@
 .App{
   overflow: hidden;
   color:var(--black);
-  background-color: rgb(165, 196, 223);
+  /* background-color: rgb(165, 196, 223); */
   padding: 1rem 1rem;
 }
 .blur{
