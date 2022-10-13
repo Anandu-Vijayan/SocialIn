@@ -153,3 +153,28 @@ export const UnFollowUser = async (req,res)=>{
     }
   }
 }
+
+//block user
+export const BlockUser = async(req,res)=>{
+  console.log(req.body);
+ const id=req.body.userId
+ const response=await UserModel.updateOne({_id:id},{$set:{status:false}})
+ res.status(200).json({"message":"status changed"})
+
+ 
+ 
+}
+//unBlocker user
+export const unBlockeUser = async(req,res)=>{
+  console.log(req.body);
+  const id=req.body.userId
+  const response=await UserModel.updateOne({_id:id},{$set:{status:true}})
+  res.status(200).json({"message":"status changed"})
+}
+
+
+
+
+
+
+//unblock User
