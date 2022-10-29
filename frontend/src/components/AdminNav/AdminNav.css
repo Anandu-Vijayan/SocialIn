@@ -15,8 +15,6 @@
     /* Set the background size and repeat proper*/
     background-size: 100%;
     background-repeat: repeat;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -moz-background-clip: text;
+   
      
 }

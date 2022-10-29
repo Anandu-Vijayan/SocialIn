@@ -28,14 +28,15 @@ const AdminNav = () => {
          <div className="Webname">
           <h1>SocialIn</h1>
 
-          </div>
-         
-        {user ? <NavLink onClick={logout} to='/admin'>
-                <button>Logout</button>
+          </div >
+        
+        {user ? <NavLink style={{ textDecoration: 'none' }}  onClick={logout} to='/admin'>
+                <Button variant="contained">Logout</Button>
               </NavLink> : <NavLink to="/admin">
                 Login
               </NavLink>
 }
+             
         
         </Stack>
       
