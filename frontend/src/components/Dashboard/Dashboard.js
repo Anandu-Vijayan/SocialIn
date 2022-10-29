@@ -49,7 +49,7 @@ const Dashboard = () => {
       
       </div>
     </Box>
-    <Box className='Box1'
+    {/* <Box className='Box1'
       sx={{
         width: 150,
         height: 150,
@@ -64,7 +64,7 @@ const Dashboard = () => {
       <div className='Box2'>Total Posts
       
       </div>
-    </Box>
+    </Box> */}
     </div>
     
     

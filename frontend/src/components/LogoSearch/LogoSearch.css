@@ -23,3 +23,18 @@
     color:rgb(255, 255, 255);
     cursor: pointer;
 }
+.Webname > h1 {
+    font-size: 2rem;
+    background-color: aqua;
+    /* Create the gradient*/
+    background-image: var(--buttonBg);
+    margin-top: 10px;
+
+    /* Set the background size and repeat proper*/
+    background-size: 100%;
+    background-repeat: repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+     
+}

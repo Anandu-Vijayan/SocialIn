@@ -32,4 +32,4 @@ const store = createStore(reducers, persistedState, composeEnhancers(applyMiddle
 
 store.subscribe(() => saveToLocalStorage(store.getState()));
 
-export default store;
+export default store; 

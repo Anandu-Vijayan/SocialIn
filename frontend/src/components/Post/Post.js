@@ -33,8 +33,8 @@ const Post = ({data}) => {
 
         <div className="postReact">
             <img className='React' src={liked?Like: NotLike} alt='' onClick={handleLike}/>
-            <img className='React' src={Comment} alt=''/>
-            <img className='React' src={Share} alt=''/>
+            {/* <img className='React' src={Comment} alt=''/>
+            <img className='React' src={Share} alt=''/> */}
         </div>
         <span style={{color:"var(--gray)", fontSize: '12px'}}>{likes} likes</span>
         <div className='detail'>
@@ -48,3 +48,5 @@ const Post = ({data}) => {
 }
 
 export default Post
+
+

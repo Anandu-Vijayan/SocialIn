@@ -18,8 +18,8 @@ const RightSide = () => {
       <Link to ='../home'>
         <img src={Home} alt=""/>
         </Link>
-        <UilSetting/>
-        <img src={Noti} alt=""/>
+        {/* <UilSetting/>
+        <img src={Noti} alt=""/> */}
         <Link to ='../chat'>
         <img src={Comment} alt=""/>
         </Link>

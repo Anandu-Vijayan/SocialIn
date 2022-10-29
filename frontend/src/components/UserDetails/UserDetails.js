@@ -119,7 +119,7 @@ const getUser=async()=>{
               <TableCell align="right"><Button onClick={()=>{handleBlock(item._id,item.status)}}>{item?.status===true? "active" : "deactivated"}</Button></TableCell>
               <TableCell align="right">{item.relationship}</TableCell>
 
-              <TableCell align="right"><button onClick={()=>{handleDelete(item._id)}}>Delete</button></TableCell>
+              <TableCell align="right"><Button onClick={()=>{handleDelete(item._id)}}>Delete</Button></TableCell>
               
               
             </TableRow>

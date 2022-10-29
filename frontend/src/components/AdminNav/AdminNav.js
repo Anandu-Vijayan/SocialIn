@@ -25,18 +25,18 @@ const AdminNav = () => {
   return (
     <div className='AdminNav'>
          <Stack direction='row' justifyContent='space-between'>
-        <Box>
-            SocialIn
+         <div className="Webname">
+          <h1>SocialIn</h1>
 
-        </Box>
-        <Box>
+          </div>
+         
         {user ? <NavLink onClick={logout} to='/admin'>
-                <Button>Logout</Button>
+                <button>Logout</button>
               </NavLink> : <NavLink to="/admin">
                 Login
               </NavLink>
 }
-        </Box>
+        
         </Stack>
       
     </div>
