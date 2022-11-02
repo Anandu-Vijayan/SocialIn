@@ -28,7 +28,7 @@
     background-color: aqua;
     /* Create the gradient*/
     background-image: var(--buttonBg);
-    margin-top: 10px;
+    margin-top: 5px;
 
     /* Set the background size and repeat proper*/
     background-size: 100%;
